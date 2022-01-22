@@ -11,17 +11,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(),
-        // 스크롤바를 자동으로 만들어:ㅈ
-        // 메모리 절약가능, 성능향상
-        // 현재 스크롤 위치를 알수 있음
         body: ListView(
+          padding: EdgeInsets.all(10),
           children: [
-            Text('Hello'),
-            Text('Hello'),
-            Text('Hello'),
-            Text('Hello'),
-            Text('Hello'),
-            Text('Hello'),
+            Row( children: [ Icon(Icons.account_circle, size: 50,), Text('홍길동'), ], ),
+            Row( children: [ Icon(Icons.account_circle, size: 50,), Text('홍길동'), ], ),
+            Row( children: [ Icon(Icons.account_circle, size: 50,), Text('홍길동'), ], ),
           ],
         )
       )
