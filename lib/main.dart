@@ -11,22 +11,20 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(),
-        // 아무거나 다 커스텀 위젯으로 만들면 안됨. 재사용 많거나 큰 페이들을 커스텀 위젯으로 만드는 것이 좋음.
-        body: ShopItem(),
+        // 스크롤바를 자동으로 만들어:ㅈ
+        // 메모리 절약가능, 성능향상
+        // 현재 스크롤 위치를 알수 있음
+        body: ListView(
+          children: [
+            Text('Hello'),
+            Text('Hello'),
+            Text('Hello'),
+            Text('Hello'),
+            Text('Hello'),
+            Text('Hello'),
+          ],
+        )
       )
     );
   }
 }
-
-// stless
-class ShopItem extends StatelessWidget {
-  const ShopItem({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      child: Text('Hello Custom Widget!!!'),
-    );
-  }
-}
-
