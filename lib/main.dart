@@ -17,30 +17,35 @@ class MyApp extends StatelessWidget {
         // 2. 네모부터 그린다. 빈공간이 없도록
         // 3. 겉에 박스부터 안에까지 차례로 container 나 row 들을 배치한다.
         // 4. 마지막으로 디자인(패딩, 마진등)을 한다.
-        body: Column(
-          // crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Container(
-              height: 200,
-              padding: EdgeInsets.all(5),
-              margin: EdgeInsets.all(5),
-              child: Row(
-                children: [
-                  Image(image: AssetImage('assets/dog.png')),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('진도개', textScaleFactor: 2.0, textAlign: TextAlign.left,),
-                      Text('서울 광진구 용마산로 123, 끌올 3분전', textAlign: TextAlign.left,),
-                      Text('100,000원', textAlign: TextAlign.left,),
-                    ]
-                  ),
-                ]
-              ),
-            ),
-          ],
-        ),
+        body: SizedBox(
+          width: double.infinity,
+          height: 150,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Flexible(child: Image.asset('assets/dog.png', width: 200,), flex: 3,),
+              Flexible(child: SizedBox(
+                height: 150,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('멍멍이', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
+                    Text('용마산로 174'),
+                    Text('70,000원'),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Icon(Icons.favorite),
+                        Text('4')
+                      ],
+                    )
+                  ],
+                ),
+                ), flex: 7,
+              )
+            ]
+          )
+        )
       ),
     );
   }
